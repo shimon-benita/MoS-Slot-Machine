@@ -31,6 +31,54 @@
   max-width: 50vw;
 }
 
+.my-body {
+  max-height: 100vh;
+  margin-block: 0px;
+  padding-block: 0px;
+}
+
+/* ------------------------------------ */
+
+@media screen and (max-width: 1060px) {
+  .main-slot-body {
+    min-width: 100%;
+  }
+}
+
+.main-slot-iconcont {
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.main-slot-iconcont-y {
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.main-slot-downside {
+  max-height: 800px;
+}
+
+.credit-text {
+  color: whitesmoke;
+  font-size: xx-large;
+  margin-bottom: 10px;
+}
+
+.credit-display {
+  background-color: whitesmoke;
+  height: fit-content;
+  width: fit-content;
+  font-size: xx-large;
+  padding-block: 5px;
+  padding-inline: 10px;
+}
+
+.outlier1 {
+  max-height: 800px;
+}
+/* ------------------------------------ */
+
 @keyframes mymove {
   from {
     background-color: rgb(14, 243, 14);

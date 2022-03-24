@@ -60,5 +60,6 @@ function masterKey() {
     icon2.src = `./img/777.jpeg`;
     icon3.src = `./img/777.jpeg`;
     icon4.src = `./img/777.jpeg`;
+    winner();
   }
 }
