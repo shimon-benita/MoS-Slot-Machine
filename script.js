@@ -18,39 +18,87 @@ icons[7] = `./img/lemon.jpeg`;
 icons[8] = new Image();
 icons[8] = `./img/watermelon.jpeg`;
 
-console.log(icons);
-
 function randomSlotIcon(icons) {
   return icons[Math.floor(Math.random() * icons.length)];
 }
 
+let userCredit = 1000;
+let creditDisplay = document.getElementById("user-credit-display");
+creditDisplay.innerText = userCredit;
+
+function renderCredit() {
+  creditDisplay.innerText = userCredit;
+}
+
+let userBet = 1;
+let BetDisplay = document.getElementById("user-bet-display");
+BetDisplay.innerText = userBet;
+
 function pushToSpin() {
+  if (userCredit < userBet) {
+    alert("Not enough credit!");
+    return;
+  }
+  userCredit = userCredit - userBet;
+  renderCredit();
+  spinTheMachine();
+}
+
+function spinTheMachine() {
   const icon1 = document.getElementById("icon1");
   const icon2 = document.getElementById("icon2");
   const icon3 = document.getElementById("icon3");
-  const icon4 = document.getElementById("icon4");
+  // const icon4 = document.getElementById("icon4");
 
-  const sloter1 = randomSlotIcon(icons);
-  const sloter2 = randomSlotIcon(icons);
-  const sloter3 = randomSlotIcon(icons);
-  const sloter4 = randomSlotIcon(icons);
+  let sloter1 = randomSlotIcon(icons);
+  let sloter2 = randomSlotIcon(icons);
+  let sloter3 = randomSlotIcon(icons);
+  // let sloter4 = randomSlotIcon(icons);
 
-  icon1.src = `${sloter1} `;
+  icon1.src = `${sloter1}`;
   icon2.src = `${sloter2}`;
   icon3.src = `${sloter3}`;
-  icon4.src = `${sloter4}`;
-
-  if (sloter1 === sloter2 && sloter3 === sloter4 && sloter1 === sloter3) {
+  // icon4.src = `${sloter4}`;
+  if (sloter1 === sloter2 && sloter1 === sloter3) {
     winner();
     return;
   } else {
     document.getElementById("winnermassage").className =
-      "main-slot-winner container pt-5";
+      "main-slot-winner pt-5";
   }
 }
+
+function renderHTML() {
+  document.getElementById("winnermassage").className = "main-slot-winner-good";
+}
+
 function winner() {
-  document.getElementById("winnermassage").className =
-    "main-slot-winner-good container pt-5";
+  renderHTML();
+  winnerPrize();
+  renderCredit();
+}
+
+function winnerPrize() {
+  if (`${sloter1}` == `./img/777.jpeg`) {
+    userCredit = userCredit + userBet * 100;
+  } else if (`${sloter1}` == `./img/bar.jpeg`) {
+    userCredit = userCredit + userBet * 50;
+  } else if (`${sloter1}` == `./img/bell.jpeg`) {
+    userCredit = userCredit + userBet * 25;
+  } else if (`${sloter1}` == `./img/cherry.jpeg`) {
+    userCredit = userCredit + userBet * 15;
+  } else if (`${sloter1}` == `./img/diamond.jpeg`) {
+    userCredit = userCredit + userBet * 9;
+  } else if (`${sloter1}` == `./img/heart.jpeg`) {
+    userCredit = userCredit + userBet * 7;
+  } else if (`${sloter1}` == `./img/horseshoe.jpeg`) {
+    userCredit = userCredit + userBet * 5;
+  } else if (`${sloter1}` == `./img/lemon.jpeg`) {
+    userCredit = userCredit + userBet * 4;
+  } else if (`${sloter1}` == `./img/watermelon.jpeg`) {
+    userCredit = userCredit + userBet * 2;
+  }
+  renderCredit();
 }
 
 function masterKey() {
@@ -59,7 +107,7 @@ function masterKey() {
     icon1.src = `./img/777.jpeg`;
     icon2.src = `./img/777.jpeg`;
     icon3.src = `./img/777.jpeg`;
-    icon4.src = `./img/777.jpeg`;
-    winner();
+    // icon4.src = `./img/777.jpeg`;
   }
+  winner();
 }

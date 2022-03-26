@@ -31,11 +31,11 @@
   max-width: 50vw;
 }
 
-.my-body {
+/* .my-body {
   max-height: 100vh;
   margin-block: 0px;
   padding-block: 0px;
-}
+} */
 
 /* ------------------------------------ */
 
@@ -70,7 +70,7 @@
   height: fit-content;
   width: fit-content;
   font-size: xx-large;
-  padding-block: 5px;
+  padding-block: 0px;
   padding-inline: 10px;
 }
 
